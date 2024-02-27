@@ -13,18 +13,12 @@ const images = [
   },
 ];
 
+
 const gallery = document.querySelector(".gallery");
 
+const imgs = images.map((img) =>
+ `<li><img src="${img.url}" alt="${img.alt}"></img></li>`).join("");
 
-images.forEach(image => {
-  const listItem = document.createElement("li");
-  listItem.className = "list";
+gallery.insertAdjacentHTML("beforeend", imgs);
 
-  const img = document.createElement("img");
-  img.src = image.url;
-  img.alt = image.alt;
-  img.className = "photo";
 
-  listItem.appendChild(img);
-  gallery.appendChild(listItem);
-})
